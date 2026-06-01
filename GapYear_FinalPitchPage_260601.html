@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAP YEAR: A Year to Wander - Kickstarter Project Pitch Page</title>
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --bg-dark: #0f1115;
+            --bg-card: #181c24;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-blue: #5b86e5;
+            --accent-mint: #36d1dc;
+            --accent-warm: #f3a152;
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --spacing-section: 120px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d3748;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        section {
+            padding: var(--spacing-section) 0;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            letter-spacing: -0.05em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title span {
+            font-size: 0.95rem;
+            color: var(--accent-mint);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Typography & Components */
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(91, 134, 229, 0.1);
+            border: 1px solid rgba(91, 134, 229, 0.3);
+            color: var(--accent-blue);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .badge-platform {
+            background: rgba(54, 209, 220, 0.15);
+            border: 1px solid var(--accent-mint);
+            color: var(--accent-mint);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* Hero / Opening Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(rgba(15, 17, 21, 0.6), rgba(15, 17, 21, 0.95)), url('마지막.jpg') no-repeat center center/cover;
+            text-align: center;
+            border-bottom: none;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #fff 30%, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-tagline {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .meta-item {
+            font-size: 0.95rem;
+        }
+
+        .meta-item strong {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .meta-item span {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Narrative Text Style */
+        .narrative-p {
+            font-size: 1.05rem;
+            color: #d1d5db;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .highlight-text {
+            color: var(--accent-mint);
+            font-weight: 600;
+        }
+
+        /* Card System */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 40px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(91, 134, 229, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        /* Core Loop Visual Component */
+        .loop-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #131720;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(54, 209, 220, 0.15);
+            margin: 30px 0;
+        }
+
+        .loop-step {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.02);
+            position: relative;
+        }
+
+        .loop-step .step-num {
+            font-size: 0.75rem;
+            color: var(--accent-mint);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .loop-step .step-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .loop-arrow {
+            padding: 0 15px;
+            color: var(--accent-blue);
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        /* Image Display Mechanics */
+        .media-container {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            background: #000;
+        }
+
+        .media-container img, .media-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Section Intro Background */
+        .section-intro-bg {
+            background: linear-gradient(rgba(24, 28, 36, 0.9), rgba(24, 28, 36, 0.9)), url('도입부.jpg') no-repeat center center/cover;
+        }
+
+        /* Tables */
+        .control-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .control-table th, .control-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .control-table th {
+            background-color: rgba(255, 255, 255, 0.02);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .control-key {
+            background: #2e3748;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--accent-mint);
+            border-bottom: 2px solid #1a202c;
+        }
+
+        /* Stat Bars */
+        .stat-item {
+            margin-bottom: 25px;
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .stat-bar-container {
+            height: 8px;
+            background: #232936;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .stat-bar {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-mint));
+        }
+
+        /* Reference Map Positioning */
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .ref-card {
+            background: rgba(255, 255, 255, 0.01);
+            border-left: 4px solid var(--accent-blue);
+            padding: 30px;
+            border-radius: 0 16px 16px 0;
+        }
+
+        /* Kickstarter Campaign Panel */
+        .funding-panel {
+            background: linear-gradient(135deg, #1e2530 0%, #131822 100%);
+            border: 1px solid rgba(91, 134, 229, 0.2);
+            border-radius: 24px;
+            padding: 60px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Navigation Dot Indicators */
+        .side-nav {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .side-nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .side-nav-dot:hover {
+            background: var(--accent-mint);
+            transform: scale(1.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+            .loop-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .loop-arrow {
+                transform: rotate(90deg);
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Navigation Indicators -->
+    <nav class="side-nav">
+        <a href="#section1" class="side-nav-dot" title="1. Game Title & Tagline"></a>
+        <a href="#section2" class="side-nav-dot" title="2. Purpose of the Game"></a>
+        <a href="#section3" class="side-nav-dot" title="3. Narrative, World & Characters"></a>
+        <a href="#section4" class="side-nav-dot" title="4. Gameplay"></a>
+        <a href="#section5" class="side-nav-dot" title="5. Key Systems"></a>
+        <a href="#section6" class="side-nav-dot" title="6. Aesthetics & UI"></a>
+        <a href="#section7" class="side-nav-dot" title="7. Concept / Prototype Video"></a>
+        <a href="#section8" class="side-nav-dot" title="8. Reference Games"></a>
+        <a href="#section9" class="side-nav-dot" title="9. Scope & Development Plan"></a>
+        <a href="#section10" class="side-nav-dot" title="10. Closing Pitch"></a>
+    </nav>
+
+    <!-- HEADER / HERO COVER (Intro & Team Overview) -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="badge" style="letter-spacing: 0.2em;">2026 GAME STORYTELLING PROJECT</span>
+            <h1 class="hero-title">GAP YEAR<br><span style="font-size: 2.8rem; font-weight: 300; color: #cbd5e1;">A Year to Wander</span></h1>
+            <p class="hero-tagline">"Every moment you pause, step back, and wander is a uniquely meaningful frame in the grand masterpiece of your life."</p>
+            
+            <div class="narrative-p" style="max-width: 750px; margin: 0 auto 40px auto; font-size: 0.95rem; color: #9ca3af; line-height: 1.8;">
+                We exhaust ourselves rushing down pre-determined tracks—college admissions, certifications, employment, and promotions—losing touch with who we truly are. This project addresses the narrative gap of modern life, offering players a virtual sabbatical to explore, breathe, and find themselves.
+            </div>
+
+            <div class="hero-meta">
+                <div class="meta-item"><strong>Ganghui Kim</strong><span>Producer / Visual Design Director</span></div>
+                <div class="meta-item"><strong>Jian Lee</strong><span>Narrative / Spatial Layout Designer</span></div>
+                <div class="meta-item"><strong>Dabin Han</strong><span>System Rules Designer</span></div>
+                <div class="meta-item"><strong>Yeonwoo Kim</strong><span>Research / Balance Analyst</span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 1: Game Title & Tagline -->
+    <section id="section1">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2 class="section-title"><span>Section 01</span>1. Game Title & Tagline</h2>
+                    <div class="card" style="margin-bottom: 25px;">
+                        <div class="card-title" style="color: var(--accent-blue);">Core Experience</div>
+                        <p class="narrative-p" style="font-size: 1rem; line-height: 1.6;">
+                            Players spend a virtual year (50 weeks) exploring an analog world with complete freedom. By documenting the journey through an analog lens, players find deep emotional release, mindfulness, and a sense of self-discovery.
+                        </p>
+                    </div>
+                    <div class="card" style="border-color: rgba(54, 209, 220, 0.3);">
+                        <div class="badge badge-platform">Target Platform: PC (Steam) Exclusive</div>
+                        <div class="card-title" style="color: var(--accent-mint);">Specifications & Genre</div>
+                        <p class="narrative-p" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">
+                            <strong>Genre:</strong> Healing, Photography, Life & Sabbatical Simulation<br>
+                            <strong>Platform Goal:</strong> Developed exclusively for PC (Steam) to deliver immersive environmental graphics and tactile, granular manual controls for camera operations.
+                        </p>
+                    </div>
+                </div>
+                <div class="media-container">
+                    <img src="주인공.jpg" alt="Protagonist Visual Art">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Purpose of the Game -->
+    <section id="section2" style="background-color: rgba(255,255,255,0.01);">
+        <div class="container" style="max-width: 950px; text-align: center;">
+            <span class="badge">The Design Philosophy</span>
+            <h2 class="section-title" style="justify-content: center;"><span>Section 02</span>2. Purpose of the Game</h2>
+            <p class="narrative-p" style="font-size: 1.3rem; line-height: 1.8; color: #fff; margin-bottom: 40px; font-weight: 300;">
+                "How do we discover ourselves through diverse experiences,<br>and what is the true healing value of a temporary pause?"
+            </p>
+            <div style="text-align: left; background: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.02);">
+                <p class="narrative-p"><strong>• The Core Question:</strong> Can a structured period of complete, un-incentivized rest help a person re-evaluate their identity in a hyper-competitive society?</p>
+                <p class="narrative-p"><strong>• Why It Matters:</strong> Modern burnout stems from a lack of intentional pausing. This game serves as a safe psychological laboratory where taking a break does not equal falling behind.</p>
+                <p class="narrative-p"><strong>• Why a Game?</strong> Novels tell stories of wandering; films show others doing it. A game grants <span class="highlight-text">Player Agency</span>. Deciding whether to linger at a train station all day, converse with a local, or capture a sunset gives players personal ownership over their time and memories.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Narrative, World & Characters -->
+    <section id="section3" class="section-intro-bg">
+        <div class="container">
+            <div class="grid-2">
+                <div class="media-container">
+                    <img src="카메라를 건네받다.jpg" alt="The Camera Handover Opening Scene">
+                </div>
+                <div>
+                    <h2 class="section-title"><span>Section 03</span>3. Narrative, World & Characters</h2>
+                    <p class="narrative-p"><strong>• Story Premise:</strong> Exhausted by daily routine, the protagonist visits a dim studio for an official photo [Choice: Exam / Job / Other]. The room's ambient items and dialogue shift dynamically based on this choice. As the camera flash goes off, an enigmatic photographer lends the player a <span class="highlight-text">vintage manual camera</span>, opening a rift to an unconstrained year-long sabbatical.</p>
+                    <p class="narrative-p"><strong>• World:</strong> A dual-layered open world. It starts with highly researched, realistic open spaces filled with ambient noise (Paris, Kyoto) and evolves into mystical historical/fantasy worlds as the player engages with local cultural quests.</p>
+                </div>
+            </div>
+            
+            <div class="grid-3" style="margin-top: 50px;">
+                <div class="media-container"><img src="도입부.jpg" alt="Urban Reality Intro"></div>
+                <div class="media-container"><img src="파리 에펠탑.jpg" alt="Paris Open World"></div>
+                <div class="media-container"><img src="조선시대.jpg" alt="Joseon Dynasty Special World"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Gameplay -->
+    <section id="section4">
+        <div class="container">
+            <h2 class="section-title"><span>Section 04</span>4. Gameplay & Core Interaction</h2>
+            
+            <div class="card" style="margin-bottom: 40px; border-left: 4px solid var(--accent-mint);">
+                <div class="card-title" style="color: var(--accent-mint);">Player Role & Objective</div>
+                <p class="narrative-p" style="font-size: 1rem; margin-bottom: 0;">
+                    The player acts as a <strong>'Wanderer and Observer'</strong> stepping away from reality. The goal is to compile a highly personalized, artistic photo diary over 50 virtual weeks, uncovering psychological insights and personality leanings through the archive.
+                </p>
+            </div>
+
+            <!-- Core Loop Visualizer -->
+            <div class="card-title" style="margin-top: 40px;">Core Loop (5-Step Progression Cycle) </div>
+            <div class="loop-container">
+                <div class="loop-step">
+                    <span class="step-num">Step 1</span>
+                    <span class="step-text">Explore New Worlds</span>
+                </div>
+                <div class="loop-arrow">➔</div>
+                <div class="loop-step">
+                    <span class="step-num">Step 2</span>
+                    <span class="step-text">NPC Interactions</span>
+                </div>
+                <div class="loop-arrow">➔</div>
+                <div class="loop-step">
+                    <span class="step-num">Step 3</span>
+                    <span class="step-text">Capture Fleeting Moments</span>
+                </div>
+                <div class="loop-arrow">➔</div>
+                <div class="loop-step">
+                    <span class="step-num">Step 4</span>
+                    <span class="step-text">Sell Photos for Currency</span>
+                </div>
+                <div class="loop-arrow">➔</div>
+                <div class="loop-step">
+                    <span class="step-num">Step 5</span>
+                    <span class="step-text">Archive at Base & Rest</span>
+                </div>
+            </div>
+
+            <div class="grid-2" style="margin-bottom: 60px;">
+                <div>
+                    <div class="card-title">Core Mechanics & Challenges</div>
+                    <ul style="list-style: none; padding-left: 0; margin-bottom: 30px;">
+                        <li style="margin-bottom: 12px; font-size: 0.95rem;"><strong style="color: var(--accent-warm);">• Rarity & Timing:</strong> Capturing precise moments when an NPC displays genuine, brief emotional actions under shifting weather patterns.</li>
+                        <li style="margin-bottom: 12px; font-size: 0.95rem;"><strong style="color: var(--accent-warm);">• Resource Limitations:</strong> Finite film rolls introduce an intentional artistic tension, preventing careless button-mashing.</li>
+                        <li style="margin-bottom: 12px; font-size: 0.95rem;"><strong style="color: var(--accent-warm);">• Stamina Management:</strong> Managing fatigue forces a balance between aggressive exploration and deep, meditative downtime.</li>
+                    </ul>
+
+                    <div class="card-title">Win / Lose / End Conditions</div>
+                    <p class="narrative-p" style="font-size: 0.95rem; color: var(--text-muted);">
+                        There are <strong>no Game Over screens, failures, or deaths</strong>. The game concludes naturally when <span class="highlight-text">50 virtual weeks pass</span> or if the player opts to select the <span class="highlight-text">'Return Home'</span> option via the smartphone UI. Endings generate a tailored psychological evaluation letter out of 16 distinct archetypes based on a statistical analysis of your captured photos, social ties, and preferred settings.
+                    </p>
+                </div>
+                <div class="media-container">
+                    <img src="찰칵.jpg" alt="Camera Viewfinder Mechanics">
+                </div>
+            </div>
+
+            <!-- Controls / Input Table Mapping -->
+            <div class="card">
+                <div class="card-title">Controls / Input Hardware Mapping Spec</div>
+                <table class="control-table">
+                    <thead>
+                        <tr>
+                            <th>Action / State Mode</th>
+                            <th>Hardware Input System</th>
+                            <th>In-Game Mechanical System Feedback</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Wandering Mode</strong></td>
+                            <td><span class="control-key">W</span> <span class="control-key">A</span> <span class="control-key">S</span> <span class="control-key">D</span> + Mouse</td>
+                            <td>3rd person exploration across dynamic, relaxing landscapes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Viewfinder Mode</strong></td>
+                            <td><span class="control-key">Right Click (Hold)</span></td>
+                            <td>Seamless transition into a fully immersive 1st person manual camera view</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Manual Focus Control</strong></td>
+                            <td><span class="control-key">Mouse Wheel (Scroll)</span></td>
+                            <td>Simulates a physical focus ring, letting players adjust depth-of-field precisely</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shutter Action</strong></td>
+                            <td><span class="control-key">Left Click (Click)</span></td>
+                            <td>Evaluates composition, checks timing parameters, and consumes a film slot</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Smartphone Interface</strong></td>
+                            <td><span class="control-key">Tab</span></td>
+                            <td>Displays the travel itinerary calendar, current wallet balances, and quest books</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Key Systems -->
+    <section id="section5" style="background-color: rgba(255,255,255,0.01);">
+        <div class="container">
+            <h2 class="section-title"><span>Section 05</span>5. Key Systems & Sustainable Monetization</h2>
+            <div class="grid-2">
+                <div>
+                    <div class="stat-item">
+                        <div class="stat-header"><span>Vitality - Extends travel boundaries and movement speeds</span><span>75%</span></div>
+                        <div class="stat-bar-container"><div class="stat-bar" style="width: 75%;"></div></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-header"><span>Sociability - Unlocks intimate local lore and NPC subplots</span><span>60%</span></div>
+                        <div class="stat-bar-container"><div class="stat-bar" style="width: 60%;"></div></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-header"><span>Sensibility - Visualizes artistic points of interest and aura filters</span><span>90%</span></div>
+                        <div class="stat-bar-container"><div class="stat-bar" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-header"><span>Insight - Enhances focus precision and photograph valuation parameters</span><span>45%</span></div>
+                        <div class="stat-bar-container"><div class="stat-bar" style="width: 45%;"></div></div>
+                    </div>
+                    
+                    <div class="card" style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.05); margin-top: 30px;">
+                        <div class="card-title" style="font-size: 1.1rem; color: var(--accent-mint);">Economy System</div>
+                        <p class="narrative-p" style="font-size: 0.9rem; margin-bottom: 0;">
+                            Photos transferred to the base's vintage terminal are evaluated for compositional uniqueness and exchanged for local currencies. Players use these funds to purchase <span class="highlight-text">transit tickets (train, flight)</span> to new zones or customizable <span class="highlight-text">furniture and decor</span> to turn their base into a welcoming retreat.
+                        </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="card" style="border: 1px solid rgba(243, 161, 82, 0.3); margin-bottom: 25px;">
+                        <div class="badge badge-platform" style="background: rgba(243, 161, 82, 0.1); border-color: var(--accent-warm); color: var(--accent-warm);">Monetization: Premium Model</div>
+                        <div class="card-title" style="color: var(--accent-warm);">Zero Pay-To-Win: Pure Premium Package Release</div>
+                        <p class="narrative-p" style="font-size: 0.95rem; line-height: 1.6;">
+                            To maintain the meditative atmosphere of our gameplay, disruptive in-app purchases, microtransactions, and gacha mechanisms (Free-to-Play models) are entirely omitted. We utilize a straightforward 
+                            Premium Pay-Once Package model, granting permanent and complete access to all systems without artificial mechanical gates.
+                        </p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title" style="font-size: 1.1rem;">Analytical Ending Matrix Example</div>
+                        <p class="narrative-p" style="font-size: 0.85rem; margin-bottom: 10px;">• <strong>'Deep Farewell Letter' Route:</strong> Triggered by staying long periods in a single neighborhood, receiving a heartfelt note from a local café owner acknowledging your deep presence.</p>
+                        <p class="narrative-p" style="font-size: 0.85rem; margin-bottom: 0;">• <strong>'Global Voyager' Route:</strong> Unlocked by constant traversal across multiple territories, culminating in an accumulated collage of postcards sent from global acquaintances.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Aesthetics & UI -->
+    <section id="section6">
+        <div class="container">
+            <h2 class="section-title"><span>Section 06</span>6. Aesthetics & UI</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-title" style="color: var(--accent-blue);">Visual Style</div>
+                    <p class="narrative-p" style="font-size: 0.9rem; color: var(--text-muted);">A warm pastel palette combined with low-poly 3D environmental assets maximizes mental clarity and relaxation. Upgrading lenses overlay faint analog film grain effects onto the camera screen.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title" style="color: var(--accent-mint);">Audio Direction</div>
+                    <p class="narrative-p" style="font-size: 0.9rem; color: var(--text-muted);">Centered on acoustic guitar progressions and ambient Lo-Fi tracks. Moving from busy hubs to natural zones dynamically fades out musical accompaniment, accentuating white noise like waves and rustling leaves.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title" style="color: var(--accent-warm);">UI Design (No-HUD UX)</div>
+                    <p class="narrative-p" style="font-size: 0.9rem; color: var(--text-muted);">All typical onscreen HUD metrics—like progress bars and persistent minimaps—are removed. Essential metrics are integrated cleanly into a minimalist smartphone interface accessed by pressing the Tab key.</p>
+                </div>
+            </div>
+            <div class="grid-2" style="margin-top: 40px;">
+                <div class="media-container">
+                    <img src="NPC들.jpg" alt="Coastal Village Aesthetic">
+                </div>
+                <div class="media-container">
+                    <img src="카메라 펫.jpg" alt="Base Customization Mood">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Concept / Prototype Video -->
+    <section id="section7" style="background-color: #0b0d11;">
+        <div class="container" style="max-width: 950px; text-align: center;">
+            <span class="badge" style="background: rgba(54, 209, 220, 0.1); border-color: var(--accent-mint); color: var(--accent-mint);">Concept / Prototype Showcase</span>
+            <h2 class="section-title" style="justify-content: center;"><span>Section 07</span>7. Concept / Prototype Video </h2>
+            <p class="narrative-p" style="margin-bottom: 40px;">To illustrate our gameplay loop, we have integrated advanced generative media systems (Adobe Firefly, Pixverse, Kling AI, and Suno AI) to produce an instructional walkthrough of the prototype sequence.</p>
+            
+            <div class="media-container" style="border: 2px solid rgba(91, 134, 229, 0.3);">
+                <video controls poster="1년의 기록.jpg">
+                    <source src="프로토타입 영상.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: Reference Games -->
+    <section id="section8">
+        <div class="container">
+            <h2 class="section-title"><span>Section 08</span>8. Reference Games & Positioning Map</h2>
+            <p class="narrative-p">We analyze three successful titles to establish our market positioning, building upon their core strengths while solving specific limitations.</p>
+            
+            <div class="ref-grid">
+                <div class="ref-card">
+                    <div class="card-title" style="margin-bottom: 8px;">Minecraft</div>
+                    <p class="narrative-p" style="font-size: 0.85rem; color: var(--text-muted);">
+                        <strong>Similarities:</strong> High user autonomy without an overbearing narrative framework, turning space into a personal 'place'.<br>
+                        <strong>Our Innovation:</strong> Mitigates choice paralysis by introducing a non-intrusive aesthetic guide system that anchors the player's short-term motivation.
+                    </p>
+                </div>
+                <div class="ref-card" style="border-left-color: var(--accent-mint);">
+                    <div class="card-title" style="margin-bottom: 8px;">Sky: Children of the Light</div>
+                    <p class="narrative-p" style="font-size: 0.85rem; color: var(--text-muted);">
+                        <strong>Similarities:</strong> Relies on synesthetic environments rather than heavy expository text, treating traversal as a reward.<br>
+                        <strong>Our Innovation:</strong> Limits repetitive grinding loops by applying an absolute 50-week chronological framework.
+                    </p>
+                </div>
+                <div class="ref-card" style="border-left-color: var(--accent-warm);">
+                    <div class="card-title" style="margin-bottom: 8px;">Outer Wilds</div>
+                    <p class="narrative-p" style="font-size: 0.85rem; color: var(--text-muted);">
+                        <strong>Similarities:</strong> Self-driven exploration where curiosity leads to insight, complemented by musical rest spots.<br>
+                        <strong>Our Innovation:</strong> Swaps punishing physics and lethal time limits for soft psychological profiling and emotional exploration.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid-2" style="margin-top: 40px;">
+                <div class="media-container"><img src="사진 촬영하는 장면.jpg" alt="Capturing Framing and Composition"></div>
+                <div class="media-container"><img src="사진 촬영하는 장면2.jpg" alt="Analyzing Photo Perspectives"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: Scope & Development Plan -->
+    <section id="section9" style="background-color: rgba(255,255,255,0.01);">
+        <div class="container">
+            <h2 class="section-title"><span>Section 09</span>9. Scope & Development Plan</h2>
+            
+            <div class="grid-2" style="margin-bottom: 40px;">
+                <div class="card">
+                    <div class="card-title" style="color: var(--accent-blue);">Prototype Scope (MVP)</div>
+                    <p class="narrative-p" style="font-size: 0.85rem; color: var(--text-muted);">
+                        • <strong>Spatial Scope:</strong> Includes one safe hub ('Base') and two highly-polished environmental zones (Paris and Kyoto).
+                    </p>
+                    <p class="narrative-p" style="font-size: 0.85rem; color: var(--text-muted);">
+                        • <strong>Core Metrics:</strong> Validates the primary 1st person raycasting camera composition algorithm alongside dynamic integration for the 4 player attributes.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title" style="color: var(--accent-mint);">Milestones & Roadmap</div>
+                    <p class="narrative-p" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.8;">
+                        <strong>• Step 1 (Foundations):</strong> Complete MVP baseline camera logic and standard asset migration arrays.<br>
+                        <strong>• Step 2 (Expansion):</strong> Deploy full seasonal climate variations and expand interactive asset maps.<br>
+                        <strong>• Step 3 (Polishing):</strong> Integrate all 16 ending permutations and complete ambient audio mixing sweeps.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Roles (R&R) -->
+            <div class="card" style="margin-bottom: 40px;">
+                <div class="card-title">Team Roles & Internal Responsibility Assignments</div>
+                <div class="grid-4">
+                    <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px;">
+                        <strong style="color: #fff; display: block; margin-bottom: 8px;">System & Balance</strong>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Manages core loops, resource scarcity values, and growth scaling structures.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px;">
+                        <strong style="color: #fff; display: block; margin-bottom: 8px;">World & Environment</strong>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Handles low-poly 3D modeling pipelines, color mapping, and zone layouts.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px;">
+                        <strong style="color: #fff; display: block; margin-bottom: 8px;">Technical Art & Sound</strong>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Programs spatial audio fading structures and custom post-processing camera filters.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px;">
+                        <strong style="color: #fff; display: block; margin-bottom: 8px;">Client Engineering</strong>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Implements camera raycasting math, smartphone UI triggers, and save file indexing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risks & Challenges Matrix -->
+            <div class="card" style="border-left: 4px solid var(--accent-warm);">
+                <div class="card-title" style="color: var(--accent-warm);">Risks & Challenges Mitigation Matrix</div>
+                <table class="control-table">
+                    <thead>
+                        <tr>
+                            <th>Identified Risk Factor</th>
+                            <th>Technical / Design Mitigation Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Potential early user fatigue due to a non-combat structure</strong></td>
+                            <td>
+                                We developed a 'World Responsiveness' engine. Environmental color tones, ambient BGM tracks, and NPC text files alter dynamically in real-time based on the composition parameters of player photos, providing immediate emotional feedback.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Overhead and data storage constraints from extensive photo archiving</strong></td>
+                            <td>
+                                Utilizes strict Asynchronous Data Streaming architecture combined with Procedural Generation assets to minimize computational load, ensuring smooth performance on standard hardware configs.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="media-container" style="margin-top: 40px;">
+                <img src="1년의 기록.jpg" alt="Yearbook Archiving Portal Art">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: Closing Pitch & Kickstarter Reference Model (Verbatim UI image representation) -->
+    <section id="section10" style="border-bottom: none;">
+        <div class="container">
+            <div class="funding-panel">
+                <span class="badge" style="background: rgba(243, 161, 82, 0.1); border-color: var(--accent-warm); color: var(--accent-warm);">10. Closing Pitch</span>
+                <h2 class="hero-title" style="font-size: 3rem; margin-top: 20px;">Ready to Frame Your Journey?</h2>
+                <p class="narrative-p" style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px auto; color: #cbd5e1;">
+                    We want to offer an alternative for those trapped in the modern cycle of continuous production: a space where pausing does not mean failing. Help us bring this journey to life.
+                </p>
+                
+                <!-- Verbatim Visual Match with image_f1481c.png -->
+                <div class="grid-3" style="text-align: left; margin-top: 50px;">
+                    <div class="card" style="background: rgba(0,0,0,0.2);">
+                        <div class="card-title" style="font-size: 1.1rem; color: var(--accent-blue);">Digital Tier</div>
+                        <p class="narrative-p" style="font-size: 0.85rem; color: var(--text-muted);">
+                            • Full Digital Steam Game Download Key activation license upon project execution.<br>
+                            • Premium high-fidelity Digital Original Soundtrack (OST) compilation download package.
+                        </p>
+                    </div>
+                    <div class="card" style="background: rgba(0,0,0,0.2);">
+                        <div class="card-title" style="font-size: 1.1rem; color: var(--accent-mint);">Collector Tier</div>
+                        <p class="narrative-p" style="font-size: 0.85rem; color: var(--text-muted);">
+                            • Includes all core benefits established inside the baseline Digital Tier tier structure.<br>
+                            • Kickstarter Exclusive: Limited Edition Analog Camera Skin to customize your in-game gear.
+                        </p>
+                    </div>
+                    <div class="card" style="background: rgba(0,0,0,0.2);">
+                        <div class="card-title" style="font-size: 1.1rem; color: var(--accent-warm);">Artbook Premium Tier</div>
+                        <p class="narrative-p" style="font-size: 0.85rem; color: var(--text-muted);">
+                            • Inherits all Digital & Collector tier system tier rewards explicitly.<br>
+                            • Premium physical Hardcover Artbook featuring conceptual sketches, lore notes, and unreleased panorama drawings shipped directly to your door.
+                        </p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 50px; font-size: 0.85rem; color: var(--text-muted);">GAP YEAR: A Year to Wander Development Group. All Rights Reserved.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
